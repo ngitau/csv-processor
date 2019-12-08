@@ -1,0 +1,46 @@
+<!--<!DOCTYPE html>-->
+<html>
+<head>
+  <title> Processor | CSV </title>
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <meta content="template language" name="keywords">
+  <meta content="Ndung'u Gitau" name="author">
+  <meta content="CSV Processor" name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+</head>
+<body class="menu-position-side menu-side-left full-screen">
+<div class="all-wrapper solid-bg-all">
+  <div class="row">
+    <div class="col-md-6 mx-auto py-5">
+      <div class="card">
+        <h5 class="card-header">Simple CSV Reader</h5>
+        <div class="card-body">
+<!--          <h5 class="card-title">Special title treatment</h5>-->
+          <p class="card-text">Use the form below to submit input.</p>
+          <form method="post" action="/process">
+            <div class="form-group">
+              <label for="separator">Column Separator</label>
+              <input type="text" class="form-control" id="separator" aria-describedby="separatorHelp" placeholder="Defaults to a comma">
+              <small id="separatorHelp" class="form-text text-muted">Specify the column separator.</small>
+            </div>
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                  <label class="custom-file-label" for="inputGroupFile01">Choose a CSV file</label>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
