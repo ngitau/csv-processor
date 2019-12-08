@@ -1,12 +1,12 @@
 package com.processor.csv
 
 class App {
-  fun start(args: Array<String>) {
+  fun start() {
     println("Yay!")
   }
 }
 
-fun main(args: Array<String>) {
+fun main() {
   val app = App();
-  app.start(args)
+  app.start()
 }
