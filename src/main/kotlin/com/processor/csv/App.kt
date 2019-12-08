@@ -1,12 +1,16 @@
 package com.processor.csv
 
-class App {
-  fun start() {
-    println("Yay!")
-  }
-}
+import org.jooby.Jooby.*
+import org.jooby.Kooby
 
-fun main() {
-  val app = App();
-  app.start()
+class App: Kooby({
+
+  assets("/assets/**");
+  get("/") {
+    "Hello CSV!"
+  }
+})
+
+fun main(args: Array<String>) {
+  run(::App, args)
 }
