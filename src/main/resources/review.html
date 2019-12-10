@@ -9,20 +9,20 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              {{#each records as |record|}}
-                {{#with record as |k v|}}
-                  <td scope="col">{{k}}</td>
-                {{/with}}
+              {{#each records.[0] as |recordValue recordKey|}}
+                <th>{{recordValue}}</th>
               {{/each}}
             </tr>
           </thead>
           <tbody>
             {{#each records as |recordsValue recordsKey|}}
-              {{#each recordsValue as |recordValue recordKey|}}
-                {{#with recordValue as |k v|}}
-                  <td>{{v}}</td>
-                {{/with}}
-              {{/each}}
+              {{#unless @first}}
+                <tr>
+                  {{#each recordsValue as |recordValue recordKey|}}
+                    <td>{{recordValue}}</td>
+                  {{/each}}
+                </tr>
+              {{/unless}}
             {{/each}}
           </tbody>
         </table>

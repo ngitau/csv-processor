@@ -19,9 +19,11 @@ class App: Kooby({
     val upload = file("file").file()
     val separator = ","
 
-    val records = CsvHelper(separator).reader(upload)
+    val records = CsvHelper(separator).objectMapper(upload)
 
     Results.html("review").put(mapOf("records" to records, "title" to "Review"))
+
+//    records.first()
   }
 
 })
