@@ -1,12 +1,14 @@
 {{#partial "content" }}
 <div class="row">
-  <div class="col-md-6 mx-auto py-5">
+  <div class="col-md-12">
+    <div class="alert alert-success" role="alert">
+      <h5 class="alert-heading">Success!</h5>
+      <p class="m-0">The CSV file was processed and contents tabled.</p>
+    </div>
     <div class="card">
-      <h5 class="card-header">Simple CSV Reader  - {{title}}</h5>
+      <h5 class="card-header">{{title}}</h5>
       <div class="card-body">
-        <!--          <h5 class="card-title">Special title treatment</h5>-->
-<!--        <p class="card-text">Use the form below to review the headers.</p>-->
-        <table class="table table-bordered">
+        <table class="table table-bordered table-striped">
           <thead>
             <tr>
               {{#each records.[0] as |recordValue recordKey|}}
