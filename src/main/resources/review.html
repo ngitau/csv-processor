@@ -2,11 +2,30 @@
 <div class="row">
   <div class="col-md-6 mx-auto py-5">
     <div class="card">
-      <h5 class="card-header">Simple CSV Reader</h5>
+      <h5 class="card-header">Simple CSV Reader  - {{title}}</h5>
       <div class="card-body">
         <!--          <h5 class="card-title">Special title treatment</h5>-->
-        <p class="card-text">Use the form below to review the headers.</p>
-
+<!--        <p class="card-text">Use the form below to review the headers.</p>-->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              {{#each records as |record|}}
+                {{#with record as |k v|}}
+                  <td scope="col">{{k}}</td>
+                {{/with}}
+              {{/each}}
+            </tr>
+          </thead>
+          <tbody>
+            {{#each records as |recordsValue recordsKey|}}
+              {{#each recordsValue as |recordValue recordKey|}}
+                {{#with recordValue as |k v|}}
+                  <td>{{v}}</td>
+                {{/with}}
+              {{/each}}
+            {{/each}}
+          </tbody>
+        </table>
       </div>
     </div>
 

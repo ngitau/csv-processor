@@ -10,20 +10,18 @@ import org.jooby.hbs.Hbs
 class App: Kooby({
   use(Hbs())
 
-  val reader = CsvHelper()
-
   get("/") {
     Results.html("home")
   }
 
-  post("/process") {
+  post("/review") {
 
     val upload = file("file").file()
-    val separator = param("separator").value()
+    val separator = ","
 
-//    val records = reader.read(upload, separator)
+    val records = CsvHelper(separator).reader(upload)
 
-    Results.html("review")
+    Results.html("review").put(mapOf("records" to records, "title" to "Review"))
   }
 
 })
