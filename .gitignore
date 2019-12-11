@@ -24,7 +24,11 @@ hs_err_pid*
 .idea
 out
 build
+
 .gradle
+gradle/
+gradlew*
+!gradle-wrapper.jar
+
 *.properties
 *.iml
-!gradle-wrapper.jar
