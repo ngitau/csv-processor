@@ -56,6 +56,8 @@ dependencies {
     compile "io.netty:netty-tcnative-boringssl-static:${dependencyManagement.importedProperties['boringssl.version']}:${osdetector.classifier}"
     compile "org.jooby:jooby-hbs:1.6.2"
 
+    implementation 'com.github.javafaker:javafaker:1.0.1'
+
     testCompile "org.jetbrains.spek:spek-api:$spekVersion"
     testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spekVersion"
     testCompile "org.junit.platform:junit-platform-launcher:$junitPlatformVersion"
