@@ -1,0 +1,38 @@
+{{#partial "content" }}
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-success" role="alert">
+      <h5 class="alert-heading">Success!</h5>
+      <p class="m-0">The CSV file was processed and contents tabled.</p>
+    </div>
+    <div class="card">
+      <h5 class="card-header">{{title}}</h5>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              {{#each records.[0] as |recordValue recordKey|}}
+                <th>{{recordValue}}</th>
+              {{/each}}
+            </tr>
+          </thead>
+          <tbody>
+            {{#each records as |recordsValue recordsKey|}}
+              {{#unless @first}}
+                <tr>
+                  {{#each recordsValue as |recordValue recordKey|}}
+                    <td>{{recordValue}}</td>
+                  {{/each}}
+                </tr>
+              {{/unless}}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{/partial}}
+
+{{> index}}

@@ -1,0 +1,40 @@
+{{#partial "content" }}
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-success" role="alert">
+      <h5 class="alert-heading">Success!</h5>
+      <p class="m-0">The CSV file was processed and contents tabled.</p>
+    </div>
+    <div class="card">
+      <h5 class="card-header">{{title}}</h5>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Main Artist</th>
+              <th>Created At</th>
+              <th>Updated</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each records as |v k|}}
+              <tr>
+                <td>{{v.title}}</td>
+                <td>{{v.main_artist}}</td>
+                <td>{{v.created_at}}</td>
+                <td>{{v.updated}}</td>
+                <td>{{v.status}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{/partial}}
+
+{{> index}}

@@ -1,0 +1,23 @@
+{{#partial "content" }}
+<div class="row">
+  <div class="col-md-12 mx-auto">
+    <div class="alert alert-primary" role="alert">
+      Please upload a CSV file for processing.
+    </div>
+    <div class="card">
+      <h5 class="card-header">File Upload</h5>
+      <div class="card-body">
+        <form enctype="multipart/form-data" method="post" action="/general-reader">
+          <div class="form-group">
+            <input type="file" name="file" id="file" class="form-control-file" size="60" accept="text/csv" required="required">
+          </div>
+          <button type="submit" class="btn btn-sm btn-primary">Upload File</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{/partial}}
+
+{{> index}}
