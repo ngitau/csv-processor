@@ -1,36 +1,46 @@
-package com.processor.csv.helpers
+package com.processor.csv.util
 
-import afu.org.checkerframework.checker.igj.qual.Mutable
 import com.processor.csv.sdk.MusicRelease
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
-import java.sql.Timestamp
 import java.text.SimpleDateFormat
-import java.util.*
 
+
+/**
+ * Helper class to conduct CSV Operations
+ *
+ * created by Joseph G.
+ */
 
 class CSVHelper() {
 
-  fun readCSV(file: File): MutableList<List<String>> {
+  /**
+   * @param file CSV File object for reading
+   * @return Mutable list of lists of strings
+   */
+  fun csvReader(file: File): MutableList<List<String>> {
     val records: MutableList<List<String>> = mutableListOf()
     BufferedReader(FileReader(file)).use { br ->
       var line: String? = null
       while (br.readLine().also { line = it } != null) {
-        val values = CSVUtil.parseLine(line)
+        val values = CSVUtils.parseLine(line)
         records.add(values)
       }
     }
     return records
   }
 
-  fun objectMapper(file: File): MutableList<MusicRelease> {
+  /**
+   * @param file CSV File object for reading
+   * @return Mutable list of MusicRelease objects
+   */
+  fun csvMapper(file: File): MutableList<MusicRelease> {
     val records: MutableList<MusicRelease> = mutableListOf()
     BufferedReader(FileReader(file)).use { br ->
       var line: String? = null
       while (br.readLine().also { line = it } != null) {
-        val values = CSVUtil.parseLine(line)
-        println("We have: $values")
+        val values = CSVUtils.parseLine(line)
         val release = MusicRelease("","", "", false, 0)
         with(release) {
           title = values[0]
