@@ -59,11 +59,11 @@ class CSVHelper() {
     return records
   }
 
-  fun csvWriter(filePath: String, list: MutableList<List<String>>): String {
+  fun csvWriter(filePath: String, list: MutableList<List<String>>, delimiter: Char = ','): String {
 
     val writer = FileWriter(filePath)
     list.forEach{
-      CSVWriter.writeLine(writer, it, ',', '"')
+      CSVWriter.writeLine(writer, it, delimiter, '"')
     }
     writer.flush();
     writer.close()

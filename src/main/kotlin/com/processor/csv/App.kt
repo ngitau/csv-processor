@@ -50,20 +50,30 @@ class App: Kooby({
     }
   }
 
-
   /**
    * Receives HTTP.GET requests from '/smart-writer' route
    *
-   * @return Smart Writer Page
+   * @return Options Page
    */
   get("/smart-writer") {
+    Results.html("options")
+  }
+
+  /**
+   * Receives HTTP.POST requests from '/smart-writer' route
+   *
+   * @return Downloads Page
+   */
+  post("/smart-writer") {
     val fakerHelper = FakerHelper()
     val home = System.getProperty("user.home")
-    val filepath = "$home/simple.csv"
-    val list = fakerHelper.musicReleases(10)
-    csvHelper.csvWriter(filepath, list)
+    val name = param("name").value()
+    val size = param("size").value().toInt()
+    val list = fakerHelper.musicReleases(size)
 
-    Results.html("download").put("path", filepath)
+    csvHelper.csvWriter("$home/$name.csv", list)
+
+    Results.html("download").put("name", name)
   }
 
   /**

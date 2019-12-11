@@ -1,0 +1,46 @@
+{{#partial "content" }}
+<div class="row">
+  <div class="col-md-12 mx-auto">
+    <div class="alert alert-primary" role="alert">
+      Customize the options when writing the CSV.
+    </div>
+    <div class="card">
+      <h5 class="card-header">File Writer Options</h5>
+      <div class="card-body">
+        <form method="post" action="/smart-writer">
+          <div class="form-group">
+            <label for="name">File Name</label>
+            <input type="name" class="form-control" value="simple" name="name" id="name" placeholder="Enter File Name"
+                   required="required">
+          </div>
+          <div class="form-group">
+            <label for="size">No. of Objects</label>
+            <input type="number" class="form-control" value="10" name="size" id="size" placeholder="Enter No. of Objects"
+                   required="required">
+          </div>
+          <div class="form-group">
+            <label for="delimiter">Delimiter</label>
+            <input type="text" class="form-control" value="," name="delimiter" id="delimiter"
+                   placeholder="Defaults to Comma" required="required">
+          </div>
+          <div class="form-group">
+            <label>Status Range</label>
+            <div class="row">
+              <div class="col">
+                <input type="number" name="min" value="-5" class="form-control" placeholder="Min" required="required">
+              </div>
+              <div class="col">
+                <input type="number" name="max" value="5" class="form-control" placeholder="Max" required="required">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{/partial}}
+
+{{> index}}
