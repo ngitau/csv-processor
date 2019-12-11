@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class CSVUtils provides an array of functions for CSV operations
+ * Class CSVReader provides an array of functions for CSV operations
  *
  * created by Joseph G.
  */
 
-public class CSVUtils {
+public class CSVReader {
   private static final char DELIMITER = ',';
   private static final char QUOTE = '"';
 

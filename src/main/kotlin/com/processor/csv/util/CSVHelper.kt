@@ -24,7 +24,7 @@ class CSVHelper() {
     BufferedReader(FileReader(file)).use { br ->
       var line: String? = null
       while (br.readLine().also { line = it } != null) {
-        val values = CSVUtils.parseLine(line)
+        val values = CSVReader.parseLine(line)
         records.add(values)
       }
     }
@@ -40,7 +40,7 @@ class CSVHelper() {
     BufferedReader(FileReader(file)).use { br ->
       var line: String? = null
       while (br.readLine().also { line = it } != null) {
-        val values = CSVUtils.parseLine(line)
+        val values = CSVReader.parseLine(line)
         val release = MusicRelease("","", "", false, 0)
         with(release) {
           title = values[0]
