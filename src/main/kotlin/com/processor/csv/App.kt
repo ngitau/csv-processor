@@ -1,12 +1,14 @@
 package com.processor.csv
 
 import com.processor.csv.util.CSVHelper
+import com.processor.csv.util.FakerHelper
 import org.jooby.Jooby.run
 import org.jooby.Kooby
 import org.jooby.Results
 import org.jooby.hbs.Hbs
 import java.io.File
 import java.net.URL
+
 
 /**
  * Power up the web framework
@@ -46,6 +48,22 @@ class App: Kooby({
       val records = csvHelper.csvMapper(File(resource.file))
       Results.html("smart").put(mapOf("records" to records, "title" to fileName))
     }
+  }
+
+
+  /**
+   * Receives HTTP.GET requests from '/smart-writer' route
+   *
+   * @return Smart Writer Page
+   */
+  get("/smart-writer") {
+    val fakerHelper = FakerHelper()
+    val home = System.getProperty("user.home")
+    val filepath = "$home/simple.csv"
+    val list = fakerHelper.musicReleases(10)
+    csvHelper.csvWriter(filepath, list)
+
+    Results.html("download").put("path", filepath)
   }
 
   /**

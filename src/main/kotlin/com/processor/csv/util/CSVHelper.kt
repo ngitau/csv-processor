@@ -4,6 +4,7 @@ import com.processor.csv.sdk.MusicRelease
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
+import java.io.FileWriter
 import java.text.SimpleDateFormat
 
 
@@ -24,7 +25,7 @@ class CSVHelper() {
     BufferedReader(FileReader(file)).use { br ->
       var line: String? = null
       while (br.readLine().also { line = it } != null) {
-        val values = CSVUtils.parseLine(line)
+        val values = CSVReader.parseLine(line)
         records.add(values)
       }
     }
@@ -40,7 +41,7 @@ class CSVHelper() {
     BufferedReader(FileReader(file)).use { br ->
       var line: String? = null
       while (br.readLine().also { line = it } != null) {
-        val values = CSVUtils.parseLine(line)
+        val values = CSVReader.parseLine(line)
         val release = MusicRelease("","", "", false, 0)
         with(release) {
           title = values[0]
@@ -56,6 +57,18 @@ class CSVHelper() {
     records.removeAt(0)
 
     return records
+  }
+
+  fun csvWriter(filePath: String, list: MutableList<List<String>>): String {
+
+    val writer = FileWriter(filePath)
+    list.forEach{
+      CSVWriter.writeLine(writer, it, ',', '"')
+    }
+    writer.flush();
+    writer.close()
+
+    return filePath
   }
 
   private fun getDate(str: String) =
